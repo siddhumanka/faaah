@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 270 30% 98%;
+    --foreground: 270 20% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 270 20% 10%;
+    --primary: 270 70% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 270 15% 93%;
+    --secondary-foreground: 270 20% 30%;
+    --muted: 270 15% 93%;
+    --muted-foreground: 270 10% 50%;
+    --accent: 330 70% 60%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 270 15% 90%;
+    --input: 270 15% 90%;
+    --ring: 270 70% 60%;
+    --radius: 1rem;
+  }
+
+  .dark {
+    --background: 270 30% 6%;
+    --foreground: 270 10% 95%;
+    --card: 270 25% 10%;
+    --card-foreground: 270 10% 95%;
+    --primary: 270 70% 65%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 270 20% 15%;
+    --secondary-foreground: 270 10% 85%;
+    --muted: 270 20% 15%;
+    --muted-foreground: 270 10% 55%;
+    --accent: 330 70% 60%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 270 20% 16%;
+    --input: 270 20% 16%;
+    --ring: 270 70% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Safe area for bottom nav */
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted));
+  border-radius: 9999px;
+}
+
+/* Gradient text helper */
+.gradient-text {
+  @apply bg-gradient-to-r from-purple-500 via-pink-500 to-orange-400 bg-clip-text text-transparent;
+}
+
+/* Animated gradient background */
+.gradient-bg {
+  background: linear-gradient(135deg,
+    hsl(270 70% 60% / 0.1),
+    hsl(330 70% 60% / 0.1),
+    hsl(25 90% 55% / 0.1)
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 8s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
