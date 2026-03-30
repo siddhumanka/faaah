@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "pages:build": "next build",
-    "pages:deploy": "npx wrangler pages deploy out"
+    "pages:deploy": "npx wrangler pages deploy out --project-name=faaah"
   },
   "dependencies": {
     "autoprefixer": "^10.4.27",
